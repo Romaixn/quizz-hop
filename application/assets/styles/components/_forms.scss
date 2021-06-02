@@ -1,0 +1,65 @@
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="number"],
+input[type="date"],
+input[type="month"],
+input[type="search"],
+input[type="tel"],
+input[type="time"],
+textarea,
+select {
+    appearance: none;
+    outline: none !important;
+    background-color: #fff;
+    border-width: 1px;
+    padding: .5rem .75rem;
+}
+
+input[type="checkbox"]:not([class]),
+.classic-checkbox {
+  transition-duration: .15s;
+  transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
+  width: 1rem;
+  color: #5850ec;
+  height: 1rem;
+  -webkit-appearance: none;
+  color-adjust: exact;
+  display: inline-block;
+  background-origin: border-box;
+  user-select: none;
+  flex-shrink: 0;
+  background-color: #fff;
+  border: 1px solid #d2d2d2;
+  border-radius: .25rem;
+
+  &:focus {
+    border-color: transparent;
+
+    outline: none;
+	  box-shadow: 0 0 0 3px rgba(164,202,254,.45);
+  }
+
+  &:checked {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg viewBox='0 0 16 16' fill='%23fff' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.707 7.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4a1 1 0 00-1.414-1.414L7 8.586 5.707 7.293z'/%3E%3C/svg%3E");
+    border-color: transparent;
+    background-color: currentColor;
+    background-size: 100% 100%;
+    background-position: 50%;
+    background-repeat: no-repeat;
+  }
+
+  &:disabled {
+    background-color: #edf2f7;
+  }
+
+  + label:not([class]) {
+    margin-left: .5rem;
+  }
+}
+
+.form-error {
+  color: #f56565;
+}

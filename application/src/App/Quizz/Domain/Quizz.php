@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Quizz\Domain;
 
 use Ramsey\Uuid\UuidInterface;
-use App\User\Domain\Event\QuizzWasCreated;
+use App\Quizz\Domain\Event\QuizzWasCreated;
 use Broadway\EventSourcing\EventSourcedAggregateRoot;
 
 class Quizz extends EventSourcedAggregateRoot
@@ -26,17 +26,20 @@ class Quizz extends EventSourcedAggregateRoot
 
     private \DateTime $updatedAt;
 
-    public static function create(UuidInterface $uuid, UuidInterface $creator, \DateTime $date): self
+    public static function create(UuidInterface $uuid, UuidInterface $creator, \DateTime $updatedAt): self
     {
         $instance = new self();
 
-        $instance->apply(new QuizzWasCreated($uuid, $creator, $date));
+        $instance->apply(new QuizzWasCreated($uuid, $creator, $updatedAt));
 
         return $instance;
     }
 
-    public function applyQuizzWasCreated()
+    public function applyQuizzWasCreated(QuizzWasCreated $event)
     {
+        $this->uuid = $event->uuid;
+        $this->creator = $event->creator;
+        $this->updatedAt = $event->updatedAt;
     }
 
     public function getAggregateRootId(): string

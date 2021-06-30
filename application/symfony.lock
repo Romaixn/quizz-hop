@@ -1,4 +1,10 @@
 {
+    "symfony/password-hasher": {
+        "version": "v5.3.3"
+    },
+    "symfony/polyfill-php81": {
+        "version": "v1.23.0"
+    },
     "symfony/ux-swup": {
         "version": "v1.3.0"
     },

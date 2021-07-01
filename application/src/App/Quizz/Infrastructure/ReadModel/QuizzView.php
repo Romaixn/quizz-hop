@@ -21,13 +21,33 @@ class QuizzView implements SerializableReadModel
 
     private UuidInterface $uuid;
 
+    private $creator;
+
+    private string $name;
+
+    private string $description;
+
+    private int $players;
+
+    private string $slug;
+
+    private bool $isPrivate;
+
     private ?DateTime $updatedAt;
 
     private function __construct(
         UuidInterface $uuid,
+        string $name,
+        string $description,
+        int $players,
+        bool $isPrivate,
         ?DateTime $updatedAt
     ) {
         $this->uuid = $uuid;
+        $this->name = $name;
+        $this->description = $description;
+        $this->players = $players;
+        $this->isPrivate = $isPrivate;
         $this->updatedAt = $updatedAt;
     }
 
@@ -44,7 +64,7 @@ class QuizzView implements SerializableReadModel
      * @throws DateTimeException
      * @throws AssertionFailedException
      *
-     * @return UserView
+     * @return QuizzView
      */
     public static function deserialize(array $data): self
     {

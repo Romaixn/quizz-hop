@@ -36,6 +36,16 @@ services:
         volumes:
             - mysql-data:/var/lib/mysql
 
+    encore:
+        build: services/builder
+        volumes:
+            - "../../${PROJECT_DIRECTORY}:/home/app/application:cached"
+        command: "yarn run dev-server --host 0.0.0.0 --port 9999 --hot --public https://encore.${PROJECT_ROOT_DOMAIN}/ --no-firewall"
+        labels:
+            - "traefik.enable=true"
+            - "traefik.http.routers.${PROJECT_NAME}-encore.rule=Host(`encore.${PROJECT_ROOT_DOMAIN}`)"
+            - "traefik.http.routers.${PROJECT_NAME}-encore.tls=true"
+            - "traefik.http.services.encore.loadbalancer.server.port=9999"
 
     elasticsearch:
         image: elasticsearch:7.8.0

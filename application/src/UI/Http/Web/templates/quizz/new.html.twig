@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Quizz{% endblock %}
+
+{% block body %}
+    <section class="container mb-12">
+        <h1>Create new Quizz</h1>
+
+        {{ include('quizz/_form.html.twig') }}
+    </section>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('collections') }}
+{% endblock %}

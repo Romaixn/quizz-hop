@@ -20,7 +20,7 @@ class CreateQuizzHandler implements CommandHandlerInterface
 
     public function __invoke(CreateQuizzCommand $command)
     {
-        $quizz = Quizz::create($command->uuid, $command->creator, $command->updatedAt);
+        $quizz = Quizz::create($command->uuid, $command->creator, $command->name, $command->description, $command->players, $command->isPrivate, $command->updatedAt);
 
         $this->repository->store($quizz);
     }

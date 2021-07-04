@@ -70,6 +70,10 @@ class QuizzView implements SerializableReadModel
     {
         return new self(
             Uuid::fromString($data['uuid']),
+            $data['name'],
+            $data['description'],
+            $data['players'],
+            $data['isPrivate'],
             DateTime::fromString($data['updated_at']),
         );
     }

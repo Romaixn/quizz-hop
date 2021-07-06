@@ -40,7 +40,7 @@
         "symfony/dotenv": "^5.2",
         "symfony/phpunit-bridge": "^5.2",
         "symfony/profiler-pack": "^1.0",
-        "vimeo/psalm": "^3.18"
+        "vimeo/psalm": "^4.8"
     },
     "config": {
         "preferred-install": {

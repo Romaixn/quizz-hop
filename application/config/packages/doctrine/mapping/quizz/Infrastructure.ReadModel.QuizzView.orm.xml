@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+    <entity name="App\Quizz\Infrastructure\ReadModel\QuizzView" table="quizz">
+        <id name="uuid" type="uuid_binary" column="uuid"/>
+        <many-to-one field="creator" target-entity="App\User\Infrastructure\ReadModel\UserView">
+            <join-column name="creator_id" referenced-column-name="uuid" />
+        </many-to-one>
+        <field name="updatedAt" type="datetime" column="date"/>
+        <field name="name" type="string" column="name"/>
+        <field name="description" type="string" column="description"/>
+        <field name="players" type="integer" column="players"/>
+        <field name="slug" type="string" column="slug"/>
+        <field name="isPrivate" type="boolean" column="isPrivate"/>
+    </entity>
+</doctrine-mapping>

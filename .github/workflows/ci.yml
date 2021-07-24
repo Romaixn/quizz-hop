@@ -54,7 +54,7 @@ jobs:
             -
                 run: 'pipenv install --deploy --dev'
             -
-                run: 'pipenv run inv start && sleep 5'
+                run: 'pipenv run inv up && sleep 5'
             -
                 name: 'Test the infrastructure is working'
                 run: |

@@ -1,4 +1,7 @@
 {
+    "sebastian/cli-parser": {
+        "version": "1.0.1"
+    },
     "symfony/password-hasher": {
         "version": "v5.3.3"
     },

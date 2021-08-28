@@ -68,7 +68,7 @@ services:
             - "traefik.http.routers.${PROJECT_NAME}-kibana.tls=true"
 
     rabbitmq:
-        image: rabbitmq:3-management-alpine
+        image: rabbitmq:3.8-management-alpine
         volumes:
             - rabbitmq-data:/var/lib/rabbitmq
         environment:
